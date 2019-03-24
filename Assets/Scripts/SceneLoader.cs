@@ -10,4 +10,14 @@ public class SceneLoader : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
+
+    public void LoadPlayscreen()    
+    {
+        SceneManager.LoadScene("Playscreen");
+    }
+
+    public void LoadMainscreen()
+    {
+        SceneManager.LoadScene("Mainscreen");
+    }
 }

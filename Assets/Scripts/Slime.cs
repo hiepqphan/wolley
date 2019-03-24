@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class Slime : MonoBehaviour
 {
-    [SerializeField] float minX = 4.5f;
-    [SerializeField] float maxX = 16.8f;
-    [SerializeField] float minY = 1f;
-    [SerializeField] float maxY = 5.4f;
+    [SerializeField] BoxCollider2D leftBorder;
+    [SerializeField] BoxCollider2D rightBorder;
+    [SerializeField] float minX;
+    [SerializeField] float maxX;
+    [SerializeField] float minY = -1f;
+    [SerializeField] float maxY = 5.5f;
 
     [SerializeField] float speed = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
+        minX = leftBorder.transform.position.x;
+        maxX = rightBorder.transform.position.x;
     }
 
     // Update is called once per frame

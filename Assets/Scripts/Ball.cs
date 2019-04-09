@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public GameObject lastSlime;
+
     [SerializeField] Vector2 startV = new Vector2(0f, 5f);
 
     // Start is called before the first frame update
@@ -16,5 +18,10 @@ public class Ball : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        lastSlime = collision.gameObject;
     }
 }

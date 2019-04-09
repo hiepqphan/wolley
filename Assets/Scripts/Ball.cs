@@ -6,12 +6,17 @@ public class Ball : MonoBehaviour
 {
     public GameObject lastSlime;
 
-    [SerializeField] Vector2 startV = new Vector2(0f, 5f);
+    int diff;
+    float[] speedLevels = { 4f, 5f, 7f };
+    float speed;
+    float middle = 10.66667f;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = startV;
+        diff = PlayerPrefs.GetInt("Difficulty");
+        speed = speedLevels[diff];
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
     }
 
     // Update is called once per frame
@@ -23,5 +28,12 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         lastSlime = collision.gameObject;
+        if (lastSlime.tag == "Opp")
+        {
+            Vector2 aim = new Vector2(lastSlime.GetComponent<SlimeAI>().targetx, 0);
+            Vector2 pos = GetComponent<Rigidbody2D>().transform.position;
+            Vector2 dir = (aim - pos).normalized;
+            GetComponent<Rigidbody2D>().velocity = dir * speed;
+        }
     }
 }

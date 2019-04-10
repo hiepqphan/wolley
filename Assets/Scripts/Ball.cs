@@ -17,6 +17,9 @@ public class Ball : MonoBehaviour
         diff = PlayerPrefs.GetInt("Difficulty");
         speed = speedLevels[diff];
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
+
+        // Take advantage of this script to set score to 0
+        PlayerPrefs.SetInt("Score", 0); 
     }
 
     // Update is called once per frame

@@ -14,6 +14,8 @@ public class GameInit : MonoBehaviour
         toggles[diff].isOn = true;
         toggles[(diff + 1) % 3].isOn = false;
         toggles[(diff + 2) % 3].isOn = false;
+
+        PlayerPrefs.SetInt("Score", 0);
     }
 
     // Update is called once per frame

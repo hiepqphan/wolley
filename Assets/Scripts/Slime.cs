@@ -42,4 +42,14 @@ public class Slime : MonoBehaviour
         // translate
         transform.Translate(direction * speed * Time.deltaTime);
     }
+
+    public float getSpeed()
+    {
+        return speed;
+    }
+
+    public void setSpeed(float newspeed)
+    {
+        speed = newspeed;
+    }
 }

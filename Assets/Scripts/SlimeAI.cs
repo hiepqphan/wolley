@@ -9,6 +9,8 @@ public class SlimeAI : MonoBehaviour
     [SerializeField] BoxCollider2D leftBorder;
     [SerializeField] BoxCollider2D rightBorder;
 
+    bool gamePaused;
+
     int diff;
     float[] speedLevels = { 4f, 5f, 7f };
     float speed;
@@ -27,6 +29,7 @@ public class SlimeAI : MonoBehaviour
         minX = leftBorder.transform.position.x;
         maxX = rightBorder.transform.position.x;
         targetx = middle;
+        gamePaused = false;
     }
 
     // Update is called once per frame
@@ -66,11 +69,24 @@ public class SlimeAI : MonoBehaviour
         if (x_predict < minX+offset || x_predict > maxX-offset)
             outField = true;
 
-        // Move the slime. Don't move if the player will lose if the ball keeps moving
-        if ((Mathf.Abs(x_dest - pos.x) > 0.1) && ((outField && ball.lastSlime.tag != "Player") || (!outField)))
-        {
-            Vector2 dir = new Vector2(x_dest - pos.x, 0).normalized;
+        // Move the slime
+        Vector2 dir = new Vector2(x_dest - pos.x, 0).normalized;
+        if (gamePaused)
+            dir.x = 0;
+
+        if (!outField)
             GetComponent<Rigidbody2D>().transform.position = pos + dir * speed * Time.deltaTime;
-        }
+        else if (ball.lastSlime.tag == "Player")
+            GetComponent<Rigidbody2D>().transform.position = pos + dir * (speedLevels[0]-1) * Time.deltaTime;
+    }
+
+    public void setGameState(bool newstate)
+    {
+        gamePaused = newstate;
+    }
+
+    public bool getGameState()
+    {
+        return gamePaused;
     }
 }

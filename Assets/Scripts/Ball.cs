@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ball : MonoBehaviour
 {
+    [SerializeField] Text scoreText;
+
     public GameObject lastSlime;
 
     int diff;
     float[] speedLevels = { 4f, 5f, 7f };
     float speed;
-    float middle = 10.66667f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,12 @@ public class Ball : MonoBehaviour
             Vector2 pos = GetComponent<Rigidbody2D>().transform.position;
             Vector2 dir = (aim - pos).normalized;
             GetComponent<Rigidbody2D>().velocity = dir * speed;
+        }
+        else if (lastSlime.tag == "Player")
+        {
+            int newScore = PlayerPrefs.GetInt("Score") + 1;
+            PlayerPrefs.SetInt("Score", newScore);
+            scoreText.text = newScore.ToString();
         }
     }
 }

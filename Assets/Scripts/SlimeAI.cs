@@ -77,7 +77,9 @@ public class SlimeAI : MonoBehaviour
         if (!outField)
             GetComponent<Rigidbody2D>().transform.position = pos + dir * speed * Time.deltaTime;
         else if (ball.lastSlime.tag == "Player")
-            GetComponent<Rigidbody2D>().transform.position = pos + dir * (speedLevels[0]-1) * Time.deltaTime;
+            GetComponent<Rigidbody2D>().transform.position = pos + dir * (speedLevels[0] - 1) * Time.deltaTime;
+        else
+            GetComponent<Rigidbody2D>().transform.position = pos + dir * speed * Time.deltaTime;
     }
 
     public void setGameState(bool newstate)

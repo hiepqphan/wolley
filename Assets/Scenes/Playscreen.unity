@@ -1837,6 +1837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db6213c16699054c83635bc738d7319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 730444684}
   lastSlime: {fileID: 0}
 --- !u!1 &1660655935
 GameObject:
@@ -2153,11 +2154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftBorder: {fileID: 672788695}
   rightBorder: {fileID: 1086782622}
-  minX: 4.5
-  maxX: 16.8
-  minY: 1
-  maxY: 5.4
-  speed: 5
 --- !u!1 &1835314463
 GameObject:
   m_ObjectHideFlags: 0

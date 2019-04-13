@@ -6,12 +6,13 @@ public class Slime : MonoBehaviour
 {
     [SerializeField] BoxCollider2D leftBorder;
     [SerializeField] BoxCollider2D rightBorder;
-    [SerializeField] float minX;
-    [SerializeField] float maxX;
-    [SerializeField] float minY = -1f;
-    [SerializeField] float maxY = 5.5f;
+  
+    float minX;
+    float maxX;
+    float minY = 1f;
+    float maxY = 5.5f;
 
-    [SerializeField] float speed = 5f;
+    float speed = 5f;
 
     // Start is called before the first frame update
     void Start()

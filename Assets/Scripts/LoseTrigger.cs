@@ -9,18 +9,26 @@ public class LoseTrigger : MonoBehaviour
     {
         if (tag == "Bottom")
         {
+            PlayerPrefs.SetInt("Win", 0);
             SceneManager.LoadScene("Gameover");
         }
         else if (tag == "Top")
         {
-            SceneManager.LoadScene("Mainscreen");
+            PlayerPrefs.SetInt("Win", 1);
+            SceneManager.LoadScene("Gameover");
         }
         else if (collision.gameObject.tag == "Ball")
         {
             if (collision.gameObject.GetComponent<Ball>().lastSlime.tag == "Player")
+            {
+                PlayerPrefs.SetInt("Win", 0);
                 SceneManager.LoadScene("Gameover");
+            }
             else
-                SceneManager.LoadScene("Mainscreen");
+            {
+                PlayerPrefs.SetInt("Win", 1);
+                SceneManager.LoadScene("Gameover");
+            }
         }
     }
 }

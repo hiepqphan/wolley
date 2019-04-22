@@ -6,11 +6,12 @@ public class Slime : MonoBehaviour
 {
     [SerializeField] BoxCollider2D leftBorder;
     [SerializeField] BoxCollider2D rightBorder;
+    [SerializeField] Animator anim;
   
     float minX;
     float maxX;
     float minY = 1f;
-    float maxY = 5.5f;
+    float maxY = 7f;
 
     float speed = 5f;
 
@@ -38,10 +39,15 @@ public class Slime : MonoBehaviour
             v = 0;
 
         // normalize so going diagonally doesn't speed things up
-        Vector2 direction = new Vector2(h, v).normalized;
+        Vector2 dir = new Vector2(h, v).normalized;
+        anim.SetFloat("horizontal_direction", dir.x);
+        if (dir.x == 0)
+            anim.SetFloat("isMoving", -1);
+        else
+            anim.SetFloat("isMoving", 1);
 
         // translate
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(dir * speed * Time.deltaTime);
     }
 
     public float getSpeed()

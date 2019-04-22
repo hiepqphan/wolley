@@ -10,7 +10,7 @@ public class Ball : MonoBehaviour
     public GameObject lastSlime;
 
     int diff;
-    float[] speedLevels = { 4f, 5f, 7f };
+    float[] speedLevels = { 5f, 8f, 12f };
     float speed;
 
     // Start is called before the first frame update

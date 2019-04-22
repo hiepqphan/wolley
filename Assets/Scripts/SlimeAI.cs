@@ -12,12 +12,12 @@ public class SlimeAI : MonoBehaviour
     bool gamePaused;
 
     int diff;
-    float[] speedLevels = { 4f, 5f, 7f };
+    float[] speedLevels = { 5f, 8f, 10f };
     float speed;
-    float middle = 10.66667f;
+    float middle = 15f;
     float minX, maxX;
-    float optimalXLeft = 7f;
-    float optimalXRight = 15.7f;
+    float optimalXLeft;
+    float optimalXRight;
 
     public float targetx;
 
@@ -28,6 +28,9 @@ public class SlimeAI : MonoBehaviour
         speed = speedLevels[diff];
         minX = leftBorder.transform.position.x;
         maxX = rightBorder.transform.position.x;
+        optimalXLeft = leftBorder.transform.position.x + 1f;
+        optimalXRight = rightBorder.transform.position.x - 1f;
+
         targetx = middle;
         gamePaused = false;
     }
@@ -42,44 +45,19 @@ public class SlimeAI : MonoBehaviour
         else
             targetx = Random.Range(playerPos.x + 0.5f, optimalXRight);
 
-        // Calculate new position based on the target position
-        Vector2 aim = new Vector2(targetx, 0);
+        //// Calculate new position based on the target position
+        Rigidbody2D body = GetComponent<Rigidbody2D>();
         Vector2 ballPos = ball.GetComponent<Rigidbody2D>().transform.position;
         Vector2 pos = GetComponent<Rigidbody2D>().transform.position;
-        Vector2 dest = ballPos - aim;
 
-        float t = (10 - ballPos.y) / dest.y;
+        Vector2 dir = (ballPos - pos);
+        dir.y = 0;
+        dir = dir.normalized;
 
-        float x_dest = ballPos.x+dest.x*t;
-        if (x_dest < minX)
-        {
-            x_dest = minX;
-        }
-        else if (x_dest > maxX)
-        {
-            x_dest = maxX;
-        }
-
-        // Calculate if the ball will hit side boundaries
-        bool outField = false;
-        Vector2 v = ball.GetComponent<Rigidbody2D>().velocity;
-        t = (12 - ballPos.y) / v.y;
-        float x_predict = ballPos.x + v.x * t;
-        float offset = 0.5f;
-        if (x_predict < minX+offset || x_predict > maxX-offset)
-            outField = true;
-
-        // Move the slime
-        Vector2 dir = new Vector2(x_dest - pos.x, 0).normalized;
-        if (gamePaused)
+        if (pos.x < minX || pos.x > maxX || gamePaused)
             dir.x = 0;
-
-        if (!outField)
-            GetComponent<Rigidbody2D>().transform.position = pos + dir * speed * Time.deltaTime;
-        else if (ball.lastSlime.tag == "Player")
-            GetComponent<Rigidbody2D>().transform.position = pos + dir * (speedLevels[0] - 1) * Time.deltaTime;
-        else
-            GetComponent<Rigidbody2D>().transform.position = pos + dir * speed * Time.deltaTime;
+        
+        body.transform.position = Vector2.MoveTowards(body.transform.position, new Vector2(ballPos.x, pos.y), speed * Time.deltaTime);
     }
 
     public void setGameState(bool newstate)

@@ -10,7 +10,7 @@ public class Slime : MonoBehaviour
   
     float minX;
     float maxX;
-    float minY = 1f;
+    float minY = 1.5f;
     float maxY = 7f;
 
     float speed = 5f;

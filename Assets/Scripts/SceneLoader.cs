@@ -20,4 +20,9 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Mainscreen");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

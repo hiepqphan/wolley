@@ -8,6 +8,7 @@ public class SlimeAI : MonoBehaviour
     [SerializeField] Slime player;
     [SerializeField] BoxCollider2D leftBorder;
     [SerializeField] BoxCollider2D rightBorder;
+    [SerializeField] Animator anim;
 
     bool gamePaused;
 
@@ -56,7 +57,13 @@ public class SlimeAI : MonoBehaviour
 
         if (pos.x < minX || pos.x > maxX || gamePaused)
             dir.x = 0;
-        
+
+        anim.SetFloat("horizontal_direction", dir.x);
+        if (Mathf.Abs(dir.x) > 0.2f) 
+            anim.SetFloat("isMoving", 1);
+        else
+            anim.SetFloat("isMoving", -1);
+
         body.transform.position = Vector2.MoveTowards(body.transform.position, new Vector2(ballPos.x, pos.y), speed * Time.deltaTime);
     }
 

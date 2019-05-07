@@ -11,6 +11,8 @@ TagManager:
   - easy
   - medium
   - hard
+  - DestroyCollider
+  - BottomArcade
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - My UI
   - Foreground
   - Background
-  - 
+  - Ball
   - 
   - 
   - 

@@ -12,7 +12,7 @@ public class LoseTrigger : MonoBehaviour
             PlayerPrefs.SetInt("Win", 0);
             SceneManager.LoadScene("Gameover");
         }
-        else if (tag == "Top")
+        else if (tag == "Top" || (tag == "BottomArcade" && collision.gameObject.tag == "Ball"))
         {
             PlayerPrefs.SetInt("Win", 1);
             SceneManager.LoadScene("Gameover");

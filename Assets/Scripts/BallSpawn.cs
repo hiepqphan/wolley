@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallSpawn : MonoBehaviour
 {
     [SerializeField] GameObject ball;
+
+    int diff;
+    float[] spawnRates = { 5f, 3f, 2f };
 
     float[] spawnPosX = new float[2];
     float[] spawnPosY = new float[2];
@@ -12,14 +16,18 @@ public class BallSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("LastPlayScene", SceneManager.GetActiveScene().buildIndex);
         PlayerPrefs.SetInt("Score", 0);
-        InvokeRepeating("Spawn", 5f, 5f);
+        diff = PlayerPrefs.GetInt("Difficulty");
+        InvokeRepeating("Spawn", 3f, spawnRates[diff]);
 
         spawnPosX[0] = -20f;
         spawnPosX[1] = 20f;
 
         spawnPosY[0] = 5f;
         spawnPosY[1] = 15f;
+
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame

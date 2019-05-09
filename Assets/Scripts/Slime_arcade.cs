@@ -15,7 +15,7 @@ public class Slime_arcade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 5f;
+        speed = 7f;
         minX = -15f + 1.5f;
         maxX = 15f - 1.5f;
     }

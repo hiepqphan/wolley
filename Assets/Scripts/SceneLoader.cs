@@ -21,6 +21,16 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("Mainscreen");
     }
 
+    public void LoadArcadeScreen()
+    {
+        SceneManager.LoadScene("Playscreen_arcade");
+    }
+
+    public void LoadLastGamemode()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetInt("LastPlayScene"));
+    }
+
     public void QuitGame()
     {
         Application.Quit();

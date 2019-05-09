@@ -7,12 +7,12 @@ public class LoseTrigger : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (tag == "Bottom")
+        if (tag == "Bottom" || (tag == "BottomArcade" && collision.gameObject.tag == "Ball"))
         {
             PlayerPrefs.SetInt("Win", 0);
             SceneManager.LoadScene("Gameover");
         }
-        else if (tag == "Top" || (tag == "BottomArcade" && collision.gameObject.tag == "Ball"))
+        else if (tag == "Top")
         {
             PlayerPrefs.SetInt("Win", 1);
             SceneManager.LoadScene("Gameover");

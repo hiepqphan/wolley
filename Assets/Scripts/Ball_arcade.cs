@@ -33,6 +33,8 @@ public class Ball_arcade : MonoBehaviour
             targetx = Random.Range(playerPos.x + 0.5f, optimalXRight);
 
         GetComponent<Rigidbody2D>().velocity = (new Vector2(targetx - transform.position.x, -5 - transform.position.y).normalized) * speed;
+        if (gameObject.name == "Ball")
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }
 
     // Update is called once per frame

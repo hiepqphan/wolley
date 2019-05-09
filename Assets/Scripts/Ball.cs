@@ -22,7 +22,8 @@ public class Ball : MonoBehaviour
         GetComponent<Rigidbody2D>().gravityScale = 0;
 
         // Take advantage of this script to set score to 0
-        PlayerPrefs.SetInt("Score", 0); 
+        PlayerPrefs.SetInt("Score", 0);
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame

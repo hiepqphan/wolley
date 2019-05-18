@@ -9474,6 +9474,7 @@ MonoBehaviour:
   leftBorder: {fileID: 672788695}
   rightBorder: {fileID: 1086782622}
   anim: {fileID: 1785562283}
+  cam: {fileID: 1188498621}
 --- !u!95 &1785562283
 Animator:
   serializedVersion: 3

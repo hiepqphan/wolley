@@ -7,6 +7,7 @@ public class Slime : MonoBehaviour
     [SerializeField] BoxCollider2D leftBorder;
     [SerializeField] BoxCollider2D rightBorder;
     [SerializeField] Animator anim;
+    [SerializeField] Camera cam;
   
     float minX;
     float maxX;
@@ -38,10 +39,11 @@ public class Slime : MonoBehaviour
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
+            Vector2 touchPos = cam.ScreenToWorldPoint(touch.position);
             if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary)
             {
-                v = touch.position.y - curY;
-                h = touch.position.x - curX;
+                v = touchPos.y - curY;
+                h = touchPos.x - curX;
             }
         }
 

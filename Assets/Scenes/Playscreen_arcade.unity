@@ -2967,6 +2967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 641555765}
   anim: {fileID: 1287059221}
+  cam: {fileID: 203838557}
 --- !u!95 &1287059221
 Animator:
   serializedVersion: 3

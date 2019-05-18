@@ -7,6 +7,7 @@ public class Slime_arcade : MonoBehaviour
 {
     [SerializeField] Text scoreText;
     [SerializeField] Animator anim;
+    [SerializeField] Camera cam;
 
     float speed;
     float minX;
@@ -27,9 +28,10 @@ public class Slime_arcade : MonoBehaviour
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
+            Vector2 touchPos = cam.ScreenToWorldPoint(touch.position);
             if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary)
             {
-                h = touch.position.x - transform.position.x;
+                h = touchPos.x - transform.position.x;
             }
         }
 

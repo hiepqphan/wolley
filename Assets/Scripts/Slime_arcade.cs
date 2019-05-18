@@ -24,7 +24,16 @@ public class Slime_arcade : MonoBehaviour
     void Update()
     {
         float h = Input.GetAxisRaw("Horizontal");
-        if ((transform.position.x < minX && h == -1) || (transform.position.x > maxX && h == 1))
+        if (Input.touchCount == 1)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary)
+            {
+                h = touch.position.x - transform.position.x;
+            }
+        }
+
+        if ((transform.position.x < minX && h < 0) || (transform.position.x > maxX && h > 0))
             h = 0;
 
         anim.SetFloat("horizontal_direction", -h);
@@ -33,7 +42,7 @@ public class Slime_arcade : MonoBehaviour
         else
             anim.SetFloat("isMoving", -1);
 
-        Vector2 dir = new Vector2(h, 0);
+        Vector2 dir = new Vector2(h, 0).normalized;
         GetComponent<Rigidbody2D>().transform.Translate(dir * speed * Time.deltaTime);
     }
 

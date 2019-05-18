@@ -25,14 +25,27 @@ public class Slime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // GetAxisRaw is unsmoothed input -1, 0, 1
-        float v = Input.GetAxisRaw("Vertical");
-        float h = Input.GetAxisRaw("Horizontal");
-
-        // Check boundaries
         Vector2 currentPos = GetComponent<Rigidbody2D>().transform.position;
         float curX = currentPos.x;
         float curY = currentPos.y;
+
+        // GetAxisRaw is unsmoothed input -1, 0, 1
+        // Inputs for PCs
+        float v = Input.GetAxisRaw("Vertical");
+        float h = Input.GetAxisRaw("Horizontal");
+
+        // Inputs for iOS (or touch devices?)
+        if (Input.touchCount == 1)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary)
+            {
+                v = touch.position.y - curY;
+                h = touch.position.x - curX;
+            }
+        }
+
+        // Check boundaries
         if ((curX <= minX && h < 0) || (curX >= maxX && h > 0))
             h = 0;
         if ((curY <= minY && v < 0) || (curY >= maxY && v > 0))

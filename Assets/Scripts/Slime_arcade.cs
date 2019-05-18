@@ -16,7 +16,7 @@ public class Slime_arcade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 7f;
+        speed = 8f;
         minX = -15f + 1.5f;
         maxX = 15f - 1.5f;
     }
@@ -45,7 +45,7 @@ public class Slime_arcade : MonoBehaviour
             anim.SetFloat("isMoving", -1);
 
         Vector2 dir = new Vector2(h, 0).normalized;
-        GetComponent<Rigidbody2D>().transform.Translate(dir * speed * Time.deltaTime);
+        transform.Translate(dir * speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

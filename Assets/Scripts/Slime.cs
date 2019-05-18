@@ -14,13 +14,18 @@ public class Slime : MonoBehaviour
     float minY = 1.5f;
     float maxY = 7f;
 
-    float speed = 5f;
+    int diff;
+    float[] speedLevels = { 5f, 6f, 8f };
+    float speed;
 
     // Start is called before the first frame update
     void Start()
     {
         minX = leftBorder.transform.position.x;
         maxX = rightBorder.transform.position.x;
+
+        diff = PlayerPrefs.GetInt("Difficulty");
+        speed = speedLevels[diff];
     }
 
     // Update is called once per frame

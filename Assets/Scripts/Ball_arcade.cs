@@ -13,14 +13,14 @@ public class Ball_arcade : MonoBehaviour
     float middle;
 
     int diff;
-    float[] speedLevels = { 3f, 5f, 7f };
+    float[] speedLevels = { 3f, 5f, 6f };
 
     // Start is called before the first frame update
     void Start()
     {
         middle = 0;
-        optimalXLeft = -15f + 1.5f;
-        optimalXRight = 15f - 1.5f;
+        optimalXLeft = -15f + 3.5f;
+        optimalXRight = 15f - 3.5f;
         diff = PlayerPrefs.GetInt("Difficulty");
         slimeTouched = false;
         speed = speedLevels[diff];

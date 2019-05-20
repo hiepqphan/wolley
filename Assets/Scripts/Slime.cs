@@ -41,7 +41,7 @@ public class Slime : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
 
         // Inputs for iOS (or touch devices?)
-        if (Input.touchCount == 1)
+        if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
             Vector2 touchPos = cam.ScreenToWorldPoint(touch.position);

@@ -25,7 +25,7 @@ public class Slime_arcade : MonoBehaviour
     void Update()
     {
         float h = Input.GetAxisRaw("Horizontal");
-        if (Input.touchCount == 1)
+        if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
             Vector2 touchPos = cam.ScreenToWorldPoint(touch.position);

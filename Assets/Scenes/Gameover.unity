@@ -189,7 +189,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 72001231
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &276615512
 RectTransform:
@@ -330,7 +330,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316505631}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -6556.4004}
+  m_LocalPosition: {x: 0, y: 0, z: -2541.7002}
   m_LocalScale: {x: 0.95911396, y: 0.95911396, z: 0.95911396}
   m_Children: []
   m_Father: {fileID: 276615512}
@@ -501,7 +501,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656645246}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -6653}
+  m_LocalPosition: {x: 0, y: 0, z: -2638.2998}
   m_LocalScale: {x: 1.2704, y: 1.2704, z: 1.2704}
   m_Children: []
   m_Father: {fileID: 276615512}
@@ -539,7 +539,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252301006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -6603.7}
+  m_LocalPosition: {x: 0, y: 0, z: -2589}
   m_LocalScale: {x: 2.3401167, y: 2.3401167, z: 2.3401167}
   m_Children: []
   m_Father: {fileID: 276615512}
@@ -616,7 +616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1549030302}
   - component: {fileID: 1549030301}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: winscreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,8 +657,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 72001231
-  m_SortingLayer: 3
+  m_SortingLayerID: 1296286607
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 578eeba9c319cdd438ce91660f1850c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -679,7 +679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1549030300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 79.9}
   m_LocalScale: {x: 1.0341, y: 1.0341, z: 1.0341}
   m_Children: []
   m_Father: {fileID: 0}
@@ -761,7 +761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1751400352}
   - component: {fileID: 1751400351}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: gameover_screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -802,9 +802,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 72001231
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: 1296286607
+  m_SortingLayer: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: ddca90662c557574186abbfea2295f6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -824,7 +824,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751400350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 79.9}
   m_LocalScale: {x: 1.0341, y: 1.0341, z: 1.0341}
   m_Children: []
   m_Father: {fileID: 0}

@@ -34,5 +34,7 @@ Developer - <a href="https://www.github.com/hiepqphan">Hiep Phan</a>
 
 Designer - <a href="https://www.github.com/hiepqphan">Hiep Phan</a>
 
+Checkout <a href="https://portfolio-hqp.herokuapp.com" target="_blank" rel="noopener noreferrer">my website</a> for other projects.
+
 ## License
 Wolley is MIT licensed, as found in the LICENSE file.
